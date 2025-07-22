@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,6 +44,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -93,6 +96,7 @@
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(300, 29);
             this.txtID.TabIndex = 1;
+            this.txtID.Validating += new System.ComponentModel.CancelEventHandler(this.txtID_Validating);
             // 
             // label1
             // 
@@ -121,6 +125,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(300, 29);
             this.txtName.TabIndex = 3;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // dtpBirthDate
             // 
@@ -129,6 +134,7 @@
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.Size = new System.Drawing.Size(322, 29);
             this.dtpBirthDate.TabIndex = 5;
+            this.dtpBirthDate.Validating += new System.ComponentModel.CancelEventHandler(this.dtpBirthDate_Validating);
             // 
             // label3
             // 
@@ -152,6 +158,7 @@
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(206, 32);
             this.cbGender.TabIndex = 7;
+            this.cbGender.Validating += new System.ComponentModel.CancelEventHandler(this.cbGender_Validating);
             // 
             // label4
             // 
@@ -185,6 +192,10 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnAdd;
@@ -206,6 +217,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +240,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

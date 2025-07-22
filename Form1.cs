@@ -66,5 +66,63 @@ namespace Basic_Users_Managment_System
                     "Erorr", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtID_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtID, "ID cannot be empty.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtID, "");
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtName, "Name cannot be empty.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtName, "");
+            }
+        }
+
+        private void dtpBirthDate_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (dtpBirthDate.Value >= DateTime.Now)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(dtpBirthDate, "Birth date must be in the past.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(dtpBirthDate, "");
+            }
+        }
+
+        private void cbGender_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbGender.SelectedItem == null)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cbGender, "Please select User Gender.");
+            }
+            else
+            {
+                e.Cancel = false;
+                //errorProvider1.SetError(cbGender, "");
+            }
+        }
     }
 }
