@@ -22,32 +22,17 @@ namespace Basic_Users_Managment_System
 
         }
 
-        private bool CheckData()
-        {
-            return !string.IsNullOrWhiteSpace(txtName.Text) &&
-                   !string.IsNullOrWhiteSpace(txtID.Text) &&
-                   !string.IsNullOrWhiteSpace(cbGender.SelectedItem.ToString()) &&
-                   dtpBirthDate.Value < DateTime.Now;
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (CheckData())
-            {
-                ListViewItem item = new ListViewItem(txtID.Text);
-                item.SubItems.Add(txtName.Text);
-                item.SubItems.Add(dtpBirthDate.Value.ToShortDateString());
-                item.SubItems.Add(cbGender.SelectedItem.ToString());
-                item.Font = new Font("Arial", 16, FontStyle.Bold);
+            ListViewItem item = new ListViewItem(txtID.Text);
+            item.SubItems.Add(txtName.Text);
+            item.SubItems.Add(dtpBirthDate.Value.ToShortDateString());
+            item.SubItems.Add(cbGender.SelectedItem.ToString());
+            item.Font = new Font("Arial", 16, FontStyle.Bold);
 
-                listView1.Items.Add(item);
-            }
-            else
-            {
-                MessageBox.Show("Please fill in all fields correctly.",
-                    "Erorr", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            listView1.Items.Add(item);
+            MessageBox.Show("User added successfully.",
+                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
